@@ -11,7 +11,7 @@ public class Tariff {
 	private Long masterTariffId;
 	private String lseName;
 	private String tariffName;
-	private boolean isActive;
+	private Boolean isActive;
 
 	@Override
 	public String toString() {
@@ -43,11 +43,11 @@ public class Tariff {
 		this.tariffName = tariffName;
 	}
 
-	public boolean isActive() {
+	public Boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(boolean isActive) {
+	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
 

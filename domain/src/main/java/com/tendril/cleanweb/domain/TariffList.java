@@ -11,7 +11,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 public class TariffList {
 
 	private String status;
-	private int count;
+	private Integer count;
 	private String type;
 	private List<Tariff> results;
 
@@ -29,11 +29,11 @@ public class TariffList {
 		this.status = status;
 	}
 
-	public int getCount() {
+	public Integer getCount() {
 		return count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(Integer count) {
 		this.count = count;
 	}
 
