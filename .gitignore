@@ -5,3 +5,9 @@
 *.iml
 
 client/mobile/build/
+
+.project
+
+.settings
+
+.classpath
