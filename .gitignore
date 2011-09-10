@@ -1,15 +1,5 @@
 
-hackathon.iml
 
 .idea/*
 
-service/service.iml
-
-client/web/web.iml
-
-client/ios/ios.iml
-
-client/client.iml
-
-domain/domain.iml
-
+*.iml
