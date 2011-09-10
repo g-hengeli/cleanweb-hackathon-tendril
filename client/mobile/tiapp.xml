@@ -23,6 +23,12 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <guid>9cdd5461-e9ed-4c0a-a63a-94c9f1d47cad</guid>
+    
+    <property name="ti.android.debug" type="bool">true</property>
+    <!-- this will only work with our dev keystore and not on a production device! -->
+    <property name="ti.android.google.map.api.key.development">0ZnKXkWA2dIAu2EM-OV4ZD2lJY3sEWE5TSgjJNg</property>
+    <!-- get yours at http://code.google.com/android/maps-api-signup.html -->
+    <property name="ti.android.google.map.api.key.production">GET_ME_FROM_GOOGLE</property>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
@@ -34,6 +40,8 @@
             <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
     </iphone>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+    	<supports-screens android:anyDensity="false"/>
+    </android>
     <modules/>
 </ti:app>

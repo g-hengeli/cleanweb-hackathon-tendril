@@ -30,11 +30,13 @@ Ti.App.Properties.setInt('logged_in', 1);
 
 		
 Ti.App.addEventListener('login', function(){
+	Ti.App.Properties.setInt('logged_in', 1);
 	loginTab.close();
 	mainTabs.open();
 });
 
 Ti.App.addEventListener('logout', function(){
+	Ti.App.Properties.setInt('logged_in', 0);
 	mainTabs.close();
 	loginTab.open();
 });
