@@ -12,3 +12,5 @@ client/*/target/*
 
 .classpath
 out/*
+
+client/mobile/build/
