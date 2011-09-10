@@ -1,4 +1,4 @@
-package com.tendril.cleanweb.resource;
+package com.tendril.cleanweb.server.resource;
 
 import com.tendril.cleanweb.domain.User;
 

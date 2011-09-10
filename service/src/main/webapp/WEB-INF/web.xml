@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-    <display-name>Passport Application</display-name>
+    <display-name>Energy Battle Application</display-name>
 
     <!-- Guice configuration for modules with server-side components. -->
     <filter>
@@ -17,7 +17,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>com.tendril.ui.application.server.ServletContextListener</listener-class>
+        <listener-class>com.tendril.cleanweb.server.ServletContextListener</listener-class>
     </listener>
 
 </web-app>

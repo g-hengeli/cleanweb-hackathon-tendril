@@ -15,12 +15,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <guice.version>3.0</guice.version>
         <jersey.version>1.9</jersey.version>
         <jetty.version>6.1.26</jetty.version>
     </properties>
 
     <dependencies>
-        
+
         <dependency>
             <groupId>com.tendril.cleanweb</groupId>
             <artifactId>domain</artifactId>
@@ -49,14 +51,32 @@
 			<version>${jersey.version}</version>
 		</dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>r07</version>
-        </dependency>
-        <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>jetty</artifactId>
             <version>${jetty.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-guice</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>r07</version>
+        </dependency>
+
     </dependencies>
 </project>
