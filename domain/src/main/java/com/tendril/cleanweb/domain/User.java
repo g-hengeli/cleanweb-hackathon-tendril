@@ -6,15 +6,17 @@ public class User {
 
     public String firstName;
     public String lastName;
+    public String username;
     public String zipCode;
 
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String zipCode) {
+    public User(String firstName, String lastName, String username, String zipCode) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.zipCode = zipCode;
     }
 
@@ -32,6 +34,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getZipCode() {
