@@ -1,6 +1,6 @@
 package com.tendril.cleanweb.resource;
 
-import com.tendril.cleanweb.User;
+import com.tendril.cleanweb.domain.User;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
