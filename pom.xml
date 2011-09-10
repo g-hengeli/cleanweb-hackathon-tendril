@@ -9,6 +9,7 @@
     <modules>
         <module>service</module>
         <module>client</module>
+        <module>domain</module>
     </modules>
     <name>cleanweb-hackathon</name>
 

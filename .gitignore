@@ -30,3 +30,5 @@ client/client.iml
 .idea/ant.xml
 
 .idea/.name
+
+domain/domain.iml
