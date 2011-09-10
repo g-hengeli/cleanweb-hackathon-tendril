@@ -1,7 +1,7 @@
 
 hackathon.iml
 
-.idea/workspace.xml
+.idea/*
 
 service/service.iml
 
@@ -11,24 +11,5 @@ client/ios/ios.iml
 
 client/client.iml
 
-.idea/vcs.xml
-
-.idea/uiDesigner.xml
-
-.idea/qaplug_profiles.xml
-
-.idea/modules.xml
-
-.idea/misc.xml
-
-.idea/libraries/Maven__junit_junit_3_8_1.xml
-
-.idea/encodings.xml
-
-.idea/compiler.xml
-
-.idea/ant.xml
-
-.idea/.name
-
 domain/domain.iml
+
