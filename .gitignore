@@ -6,13 +6,8 @@ client/*/target/*
 
 *.iml
 
-client/mobile/build/
-<<<<<<< HEAD
-
 .project
 
 .settings
 
 .classpath
-=======
->>>>>>> ignores
