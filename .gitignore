@@ -1,13 +1,18 @@
-**/target/*
+*/target/*
+
+client/*/target/*
 
 .idea/*
 
 *.iml
 
 client/mobile/build/
+<<<<<<< HEAD
 
 .project
 
 .settings
 
 .classpath
+=======
+>>>>>>> ignores
