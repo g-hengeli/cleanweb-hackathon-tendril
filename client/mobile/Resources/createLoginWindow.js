@@ -52,12 +52,7 @@ battle.ui.createLoginWindow = function(){
 	
 	
 	function loginUser(email,pass){
-		
-	 	if(email == 'Greg' && pass == 'password'){
-	 		Ti.App.fireEvent('login');
-	 	} else {
-	 		alert('NOPE');
-	 	}
+		battle.network.loginUser(email, pass);
 	}
 	
 	return win;

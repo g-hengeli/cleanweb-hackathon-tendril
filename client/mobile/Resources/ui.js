@@ -7,6 +7,7 @@
 	Ti.include('createLoginWindow.js');
 	Ti.include('createBattleWindow.js');
 	Ti.include('createNearbyWindow.js');
+	Ti.include('createLeaderBoardWindow.js');
 
 	// create the login tab tabgroup
 	battle.ui.createLoginTabGroup = function(_args) {
@@ -36,6 +37,7 @@
 		
 		//Create the main tab group windows
 		var battleWin = battle.ui.createBattleWindow();
+		var leaderWin = battle.ui.createLeaderBoardWindow();
 		var nearbyWin = battle.ui.createNearbyWindow();
 
 
@@ -49,6 +51,13 @@
 			window:battleWin
 		});
 		
+		//create the battle tab
+		battle.leaderTab = Ti.UI.createTab({
+			title:'Leader Board',
+			icon:'KS_nav_ui.png',
+			window:leaderWin
+		});
+		
 		//create the nearby tab
 		battle.nearbyTab = Ti.UI.createTab({
 			title:'Nearby',
@@ -59,6 +68,7 @@
 		//Add the tabs to the tab group
 		
 		tabGroup.addTab(battle.battleTab);
+		tabGroup.addTab(battle.leaderTab);
 		tabGroup.addTab(battle.nearbyTab);
 		
 		
