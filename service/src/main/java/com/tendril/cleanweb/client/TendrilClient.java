@@ -6,6 +6,7 @@ import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.domain.tendril.TendrilUser;
+import org.joda.time.DateTime;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -52,5 +53,12 @@ public class TendrilClient {
 
 		return costAndConsumption;
 	}
+
+    public CostAndConsumption getCostAndConsumption() {
+        DateTime from = DateTime.now();
+        DateTime to = from.minusDays(30);
+
+        return null;
+    }
 
 }
