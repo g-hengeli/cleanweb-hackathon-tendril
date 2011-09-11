@@ -81,7 +81,7 @@ public class Fuck {
         Client c = Client.create(config);
 
             WebResource webResource = c.resource("https://dev-program.tendrildemo.com/api/rest/user/current-user");
-//            webResource.header("Emsauthtoken", username + ":" + password);
+//            webResource.header("Emsauthtoken", userName + ":" + password);
             TendrilUser user = webResource.type(MediaType.APPLICATION_JSON_TYPE).get(TendrilUser.class);
 
         } catch (Exception e) {
