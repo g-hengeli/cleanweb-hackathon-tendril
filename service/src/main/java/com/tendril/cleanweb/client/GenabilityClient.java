@@ -7,6 +7,9 @@ import java.util.List;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.ISODateTimeFormat;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
@@ -50,36 +53,29 @@ public class GenabilityClient {
 	public double getCost(Long tariffId, List<TariffInput> tariffInputs) {
 		double result = 0.0d;
 
-		int masterTariffId = 26531;
-
 		WebResource webResource = Client.create().resource(
-				"http://api.genability.com/rest/alpha/calculate/"
-						+ masterTariffId);
+				"http://api.genability.com/rest/alpha/calculate/" + tariffId);
+
+		DateTime fromDate = DateTime.now();
+		DateTime toDate = DateTime.now().minusYears(10);
+		for (TariffInput tariffInput : tariffInputs) {
+			DateTime newFromDate = DateTime
+					.parse(tariffInput.getFromDateTime());
+			fromDate = fromDate.isBefore(newFromDate) ? fromDate : newFromDate;
+			DateTime newToDate = DateTime.parse(tariffInput.getToDateTime());
+			toDate = toDate.isAfter(newToDate) ? toDate : newToDate;
+		}
 
 		CalculateInput calculateInput = new CalculateInput();
 		calculateInput.setAppId(APP_ID);
 		calculateInput.setAppKey(APP_KEY);
-		calculateInput.setFromDateTime("2011-09-01T00:00:00.0-0700");
-		calculateInput.setToDateTime("2011-11-01T00:00:00.0-0700");
-		calculateInput.setTerritoryId(1009L);
+		calculateInput.setFromDateTime(ISODateTimeFormat
+				.basicDateTimeNoMillis().print(fromDate));
+		calculateInput.setToDateTime(ISODateTimeFormat.basicDateTimeNoMillis()
+				.print(toDate));
 		calculateInput.setDetailLevel("TOTAL");
 
-		TariffInput tariffInput = new TariffInput();
-		tariffInput.setKey("consumption");
-		tariffInput.setUnit("kwh");
-		tariffInput.setFromDateTime("2011-09-01T00:00:00.0-0700");
-		tariffInput.setToDateTime("2011-10-01T00:00:00.0-0700");
-		tariffInput.setValue("100");
-
-		TariffInput tariffInput2 = new TariffInput();
-		tariffInput2.setKey("consumption");
-		tariffInput2.setUnit("kwh");
-		tariffInput2.setFromDateTime("2011-10-01T00:00:00.0-0700");
-		tariffInput2.setToDateTime("2011-11-01T00:00:00.0-0700");
-		tariffInput2.setValue("100");
-
-		calculateInput.setTariffInputs(Arrays.asList(new TariffInput[] {
-				tariffInput, tariffInput2 }));
+		calculateInput.setTariffInputs(tariffInputs);
 
 		CalculatedCost calculatedCost = webResource.type(
 				MediaType.APPLICATION_JSON_TYPE).post(CalculatedCost.class,
