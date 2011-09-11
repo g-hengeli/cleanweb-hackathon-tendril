@@ -2,6 +2,9 @@ package com.tendril.cleanweb.domain.tendril;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 @XmlRootElement
 public class ConsumptionComponent {
 
@@ -9,6 +12,12 @@ public class ConsumptionComponent {
 	private String toDate;
 	private Double cost;
 	private Double consumption;
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this,
+				ToStringStyle.SHORT_PREFIX_STYLE);
+	}
 
 	public String getFromDate() {
 		return fromDate;
