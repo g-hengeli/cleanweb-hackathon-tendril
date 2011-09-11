@@ -39,10 +39,10 @@ battle.ui.createBattleWindow = function(){
 	win.add(yourAreaLabel);
 	
 	
-	Ti.App.Properties.setInt('user_zip', 55555);
-	var areaCode = Ti.App.Properties.getInt('user_zip');
+	//Ti.App.Properties.setInt('user_zip', 55555);
+	var zipCode = Ti.App.Properties.getInt('user_zip');
 	var myArea = Titanium.UI.createTextField({
-		value:areaCode,
+		value:zipCode,
 		top:45,
 		hintText:'Ex: 80303',
 		left:'auto',
@@ -114,6 +114,7 @@ battle.ui.createBattleWindow = function(){
 	win.add(enterValueLabel);
 	
 	yourArea.addEventListener('change', function(){
+		Ti.App.Properties.setString('yourZip', null);
 		if(yourArea.value.length == 5){
 			enterValueLabel.hide();
 			win.add(pricingBtn);

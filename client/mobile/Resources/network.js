@@ -7,10 +7,12 @@
 		var xhr = Titanium.Network.createHTTPClient();
 		xhr.onload = function() {
 			var arrData = [];
+			Ti.API.info(this.responseText);
 			  arrData = eval('('+this.responseText+')');
-			  var result = arrData[0].result;
-			  Ti.API.info("result:"+result); 
-			  if(result === "true"){
+			  var zipCode = arrData.zipCode;
+			  Ti.App.Properties.setInt('user_zip', zipCode);
+			  //alert('in here');
+			  if(zipCode){
 			    var alrt_Success = Titanium.UI.createAlertDialog({
 			      title: 'Success!',
 			      message: 'You are now logged in and can battle away.',
@@ -27,9 +29,16 @@
 			    alrt_Sorry.show();
 			  }
 		};
-		var url = Ti.App.Properties.getString('base_url')+'username='+username+'&password='+password;
+		
+		xhr.onerror = function() {
+		    alert('error' + this.status);
+		}
+		var url = Ti.App.Properties.getString('base_url')+'user/';
 		Ti.API.info(url);
 		xhr.open("GET",url);
+		
+		xhr.setRequestHeader('custom-auth', username+':'+password);//+ Ti.Utils.base64encode(username+':'+password));
+		Ti.API.info('username: '+ username + ' password:'+password);
 		xhr.send();
 	};
 	
