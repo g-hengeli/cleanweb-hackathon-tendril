@@ -1,6 +1,6 @@
 package com.tendril.cleanweb.server.resource;
 
-import com.tendril.cleanweb.domain.Tariff;
+import com.tendril.cleanweb.domain.genability.Tariff;
 import com.tendril.cleanweb.server.GenabilityClient;
 
 import javax.inject.Inject;

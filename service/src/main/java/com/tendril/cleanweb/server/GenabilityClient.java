@@ -10,11 +10,11 @@ import javax.ws.rs.core.MultivaluedMap;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
-import com.tendril.cleanweb.domain.CalculateInput;
-import com.tendril.cleanweb.domain.CalculatedCost;
-import com.tendril.cleanweb.domain.Tariff;
-import com.tendril.cleanweb.domain.TariffInput;
-import com.tendril.cleanweb.domain.TariffList;
+import com.tendril.cleanweb.domain.genability.CalculateInput;
+import com.tendril.cleanweb.domain.genability.CalculatedCost;
+import com.tendril.cleanweb.domain.genability.Tariff;
+import com.tendril.cleanweb.domain.genability.TariffInput;
+import com.tendril.cleanweb.domain.genability.TariffList;
 
 public class GenabilityClient {
 

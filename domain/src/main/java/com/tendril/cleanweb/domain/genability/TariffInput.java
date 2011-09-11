@@ -1,4 +1,4 @@
-package com.tendril.cleanweb.domain;
+package com.tendril.cleanweb.domain.genability;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

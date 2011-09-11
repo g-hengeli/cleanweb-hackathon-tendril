@@ -1,4 +1,4 @@
-package com.tendril.cleanweb.domain;
+package com.tendril.cleanweb.domain.tendril;
 
 import java.util.List;
 

@@ -6,8 +6,8 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
-import com.tendril.cleanweb.domain.CostAndConsumption;
 import com.tendril.cleanweb.domain.Fight;
+import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.server.GenabilityClient;
 import com.tendril.cleanweb.server.TendrilClient;
