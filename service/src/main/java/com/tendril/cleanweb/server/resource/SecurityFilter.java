@@ -30,13 +30,13 @@ public class SecurityFilter implements ContainerRequestFilter {
         String[] values = new String(Base64.base64Decode(authentication)).split(":");
         if (values.length < 2) {
             throw new WebApplicationException(400);
-            // "Invalid syntax for username and password"
+            // "Invalid syntax for userName and password"
         }
         String username = values[0];
         String password = values[1];
         if ((username == null) || (password == null)) {
             throw new WebApplicationException(400);
-            // "Missing username or password"
+            // "Missing userName or password"
         }
 
         return new SecurityContext(new SecurityContext.User(username, password));
