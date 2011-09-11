@@ -1,5 +1,7 @@
 package com.tendril.cleanweb.domain.tendril;
 
+import java.util.Date;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
@@ -9,8 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ConsumptionComponent {
 
-	private String fromDate;
-	private String toDate;
+	private Date fromDate;
+	private Date toDate;
 	private Double cost;
 	private Double consumption;
 
@@ -20,21 +22,21 @@ public class ConsumptionComponent {
 				ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-    @XmlAttribute
-	public String getFromDate() {
+	@XmlAttribute
+	public Date getFromDate() {
 		return fromDate;
 	}
 
-	public void setFromDate(String fromDate) {
+	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
 
-    @XmlAttribute
-	public String getToDate() {
+	@XmlAttribute
+	public Date getToDate() {
 		return toDate;
 	}
 
-	public void setToDate(String toDate) {
+	public void setToDate(Date toDate) {
 		this.toDate = toDate;
 	}
 
