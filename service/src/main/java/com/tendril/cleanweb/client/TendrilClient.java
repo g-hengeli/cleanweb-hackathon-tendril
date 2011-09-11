@@ -3,8 +3,10 @@ package com.tendril.cleanweb.client;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.domain.tendril.TendrilUser;
+import org.joda.time.DateTime;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -38,6 +40,13 @@ public class TendrilClient {
         TendrilLocation location = webResource.accept(MediaType.APPLICATION_JSON_TYPE).get(TendrilLocation.class);
 
         return location;
+    }
+
+    public CostAndConsumption getCostAndConsumption() {
+        DateTime from = DateTime.now();
+        DateTime to = from.minusDays(30);
+
+        return null;
     }
 
 }

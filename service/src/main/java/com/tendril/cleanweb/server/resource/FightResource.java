@@ -1,7 +1,12 @@
 package com.tendril.cleanweb.server.resource;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.List;
+=======
+import com.tendril.cleanweb.domain.Fight;
+import com.tendril.cleanweb.service.FightService;
+>>>>>>> why does this thing refuse to commit everything
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -21,6 +26,7 @@ import com.tendril.cleanweb.server.ConsumptionConverter;
 public class FightResource {
 
 	@Inject
+<<<<<<< HEAD
 	GenabilityClient genabilityClient;
 
 	@Inject
@@ -61,5 +67,28 @@ public class FightResource {
 
 		return fight;
 	}
+=======
+    FightService fightService;
+
+	@GET
+	public Fight fight(@HeaderParam("custom-auth") String auth,
+			@QueryParam("tariffId") Long tariffId) {
+//		TendrilLocation tendrilLocation = new TendrilLocation();
+//		tendrilLocation.setPostalCode("80301");
+        // TendrilLocation tendrilLocation = tendrilClient.getLocation(auth);
+
+//		CostAndConsumption costAndConsumption = new CostAndConsumption();
+        // CostAndConsumption costAndConsumption =
+        // tendrilClient.getConsumption(auth);
+
+//		Fight fight = new Fight();
+        // fight.setLocalScore(genabilityClient.getCost(
+        // tendrilLocation.getPostalCode(), costAndConsumption));
+        // fight.setComparisonScore(genabilityClient.getCost(zipCode,
+        // costAndConsumption));
+
+        return fightService.createFight();
+    }
+>>>>>>> why does this thing refuse to commit everything
 
 }
