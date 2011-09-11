@@ -25,7 +25,7 @@ public class TendrilClient {
         Client c = clientProvider.get();
         c.addFilter(new HTTPBasicAuthFilter(username, password));
         WebResource webResource = c.resource("https://dev-program.tendrildemo.com/api/rest/user/current-user");
-        TendrilUser user = webResource.type(MediaType.APPLICATION_JSON_TYPE).get(TendrilUser.class);
+        TendrilUser user = webResource.accept(MediaType.APPLICATION_JSON_TYPE).get(TendrilUser.class);
 
         return user;
     }
