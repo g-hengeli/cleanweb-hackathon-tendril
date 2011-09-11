@@ -3,6 +3,7 @@ package com.tendril.cleanweb.client;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.domain.tendril.TendrilUser;
 
@@ -37,7 +38,19 @@ public class TendrilClient {
 
         TendrilLocation location = webResource.accept(MediaType.APPLICATION_JSON_TYPE).get(TendrilLocation.class);
 
-        return location;
-    }
+		return location;
+	}
+
+	public CostAndConsumption getConsumption(String username, String password) {
+		Client c = clientProvider.get();
+		c.addFilter(new HTTPBasicAuthFilter(username, password));
+		WebResource webResource = c
+				.resource("https://dev-program.tendrildemo.com/api/rest/user/current-user/account/default-account/consumption/HOURLY;from=;to=");
+
+		CostAndConsumption costAndConsumption = webResource.accept(
+				MediaType.APPLICATION_JSON_TYPE).get(CostAndConsumption.class);
+
+		return costAndConsumption;
+	}
 
 }
