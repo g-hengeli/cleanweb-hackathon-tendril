@@ -15,8 +15,9 @@ public class TendrilUser {
     private String lastName;
     private String username;
 
-    public TendrilUser(String id) {
-        this.id = id;
+
+
+    public TendrilUser() {
     }
 
     public TendrilUser(String id, String authorId, String emailAddress, boolean expert, String firstName, String lastName, String username) {

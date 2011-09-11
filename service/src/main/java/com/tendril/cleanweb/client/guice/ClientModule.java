@@ -1,4 +1,4 @@
-package com.tendril.cleanweb.guice;
+package com.tendril.cleanweb.client.guice;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;

@@ -3,7 +3,7 @@ package com.tendril.cleanweb.server;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
-import com.tendril.cleanweb.guice.ClientModule;
+import com.tendril.cleanweb.client.guice.ClientModule;
 
 /**
  */
