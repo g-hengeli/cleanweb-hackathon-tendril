@@ -33,7 +33,7 @@ public class UserResource {
         TendrilUser tendrilUser = client.getUser(username, password);
         TendrilLocation tendrilLocation = client.getLocation(username, password);
 
-        return new User(tendrilUser.getFirstName(), tendrilUser.getLastName(), tendrilUser.getUsername(), tendrilLocation.getPostalCode());
+        return new User(tendrilUser.getFirstName(), tendrilUser.getLastName(), tendrilUser.getUserName(), tendrilLocation.getPostalCode());
     }
 
     @GET
