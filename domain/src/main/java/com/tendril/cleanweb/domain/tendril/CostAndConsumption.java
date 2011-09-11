@@ -1,18 +1,17 @@
 package com.tendril.cleanweb.domain.tendril;
 
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlRootElement;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class CostAndConsumption {
 
 	private Double cost;
 	private Double consumption;
-	private List<ConsumptionComponent> component;
+    private ComponentList componentList;
+
 
 	@Override
 	public String toString() {
@@ -36,12 +35,11 @@ public class CostAndConsumption {
 		this.consumption = consumption;
 	}
 
-	public List<ConsumptionComponent> getComponent() {
-		return component;
-	}
+    public ComponentList getComponentList() {
+        return componentList;
+    }
 
-	public void setComponent(List<ConsumptionComponent> component) {
-		this.component = component;
-	}
-
+    public void setComponentList(ComponentList componentList) {
+        this.componentList = componentList;
+    }
 }
