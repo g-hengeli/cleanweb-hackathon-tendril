@@ -35,17 +35,4 @@ public class UserResource {
 
         return new User(tendrilUser.getFirstName(), tendrilUser.getLastName(), tendrilUser.getUserName(), tendrilLocation.getPostalCode());
     }
-
-    @GET
-    @Path("basic")
-    public String foo(@HeaderParam("custom-auth") String customAuth) {
-        return customAuth;
-    }
-
-
-    @GET
-    @Path("/test")
-    public String getUserTest() {
-        return "test";
-    }
 }
