@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.ISODateTimeFormat;
 
 import com.sun.jersey.api.client.Client;
@@ -69,10 +70,10 @@ public class GenabilityClient {
 		CalculateInput calculateInput = new CalculateInput();
 		calculateInput.setAppId(APP_ID);
 		calculateInput.setAppKey(APP_KEY);
-		calculateInput.setFromDateTime(ISODateTimeFormat
-				.basicDateTimeNoMillis().print(fromDate));
-		calculateInput.setToDateTime(ISODateTimeFormat.basicDateTimeNoMillis()
-				.print(toDate));
+		calculateInput.setFromDateTime(ISODateTimeFormat.dateTime().print(
+				fromDate));
+		calculateInput
+				.setToDateTime(ISODateTimeFormat.dateTime().print(toDate));
 		calculateInput.setDetailLevel("TOTAL");
 
 		calculateInput.setTariffInputs(tariffInputs);
