@@ -4,6 +4,7 @@ battle.ui.createResultsWindow = function(){
 	var win = Ti.UI.createWindow({
 		title:'Results',
 		backgroundColor:'white',
+		barColor:Ti.App.Properties.getString('barColor'),
 		modal:true
 	});
 	

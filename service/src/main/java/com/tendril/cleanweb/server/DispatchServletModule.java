@@ -5,6 +5,8 @@ import com.sun.jersey.api.container.filter.LoggingFilter;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
+import com.tendril.cleanweb.server.resource.FightResource;
+import com.tendril.cleanweb.server.resource.LeaderboardResource;
 import com.tendril.cleanweb.server.resource.SecurityFilter;
 import com.tendril.cleanweb.server.resource.TariffResource;
 import com.tendril.cleanweb.server.resource.UserResource;
@@ -18,6 +20,8 @@ public class DispatchServletModule extends ServletModule {
 
     @Override
     public void configureServlets() {
+        bind(FightResource.class);
+        bind(LeaderboardResource.class);
         bind(TariffResource.class);
         bind(UserResource.class);
 

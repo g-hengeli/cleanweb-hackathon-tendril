@@ -3,7 +3,8 @@
 battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	var win = Ti.UI.createWindow({
 		title:'Pricing Plans',
-		backgroundColor:'white',
+		backgroundColor:'#999999',
+		barColor:Ti.App.Properties.getString('barColor'),
 		modal:true
 	});
 	

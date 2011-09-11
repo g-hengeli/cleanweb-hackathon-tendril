@@ -47,21 +47,21 @@
 		//create the battle tab
 		battle.battleTab = Ti.UI.createTab({
 			title:'Battle',
-			icon:'KS_nav_ui.png',
+			icon:'images/fist.png',
 			window:battleWin
 		});
 		
 		//create the battle tab
 		battle.leaderTab = Ti.UI.createTab({
 			title:'Leader Board',
-			icon:'KS_nav_ui.png',
+			icon:'images/KS_nav_ui.png',
 			window:leaderWin
 		});
 		
 		//create the nearby tab
 		battle.nearbyTab = Ti.UI.createTab({
 			title:'Nearby',
-			icon:'KS_nav_views.png',
+			icon:'images/world.png',
 			window:nearbyWin
 		});
 		

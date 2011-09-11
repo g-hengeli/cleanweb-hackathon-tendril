@@ -3,6 +3,7 @@
 battle.ui.createLoginWindow = function(){
 	var win = Ti.UI.createWindow({
 		title:'Login',
+		barColor:Ti.App.Properties.getString('barColor'),
 		tabBarHidden:true
 	});
 	

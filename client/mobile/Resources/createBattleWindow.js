@@ -7,6 +7,7 @@ battle.ui.createBattleWindow = function(){
 	
 	var win = Ti.UI.createWindow({
 		title:'Battle',
+		barColor:Ti.App.Properties.getString('barColor'),
 		
 	});
 	
@@ -70,6 +71,7 @@ battle.ui.createBattleWindow = function(){
 		paddingLeft:5,
 		borderRadius:'4',
 		keyboardToolbar:[flexSpace, doneBtn],
+		keyboardToolbarColor:Ti.App.Properties.getString('barColor'),
 		keyboardType:Titanium.UI.KEYBOARD_NUMBER_PAD,
 		returnKeyType:Titanium.UI.RETURNKEY_DONE,
 		backgroundColor:'white',
@@ -81,10 +83,12 @@ battle.ui.createBattleWindow = function(){
 	var battleBtn = Ti.UI.createButton({
 		title:'BATTLE!',
 		height:50,
-		color:'#000',
+		color:'#fff',
+		font: { fontWeight: 'bold', fontSize:'16'},
 		width:'90%',
-		backgroundImage:'images/BUTT_gry_off.png',
-		backgroundSelectedImage:'images/BUTT_gry_on.png',
+		hires:true,
+		backgroundImage:'images/greenBtnOFF.png',
+		backgroundSelectedImage:'images/greenBtnON.png',
 		top:240
 	})
 	//win.add(battleBtn);
@@ -93,10 +97,11 @@ battle.ui.createBattleWindow = function(){
 	var pricingBtn = Ti.UI.createButton({
 		title:'Choose Pricing Plan',
 		height:50,
-		color:'#000',
+		color:'#fff',
 		width:'90%',
-		backgroundImage:'images/BUTT_gry_off.png',
-		backgroundSelectedImage:'images/BUTT_gry_on.png',
+		font: { fontWeight: 'bold', fontSize:'16'},
+		backgroundImage:'images/greenBtnOFF.png',
+		backgroundSelectedImage:'images/greenBtnON.png',
 		top:190
 	})
 	

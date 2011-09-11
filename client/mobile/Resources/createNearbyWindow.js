@@ -3,6 +3,7 @@
 battle.ui.createNearbyWindow = function(){
 	var win = Ti.UI.createWindow({
 		title:'Nearby',
+		barColor:Ti.App.Properties.getString('barColor'),
 	});
 	
 	var mapview = Ti.Map.createView({

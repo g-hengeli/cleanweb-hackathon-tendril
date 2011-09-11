@@ -1,18 +1,17 @@
 package com.tendril.cleanweb.client;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
-import javax.ws.rs.core.MediaType;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.ISODateTimeFormat;
-
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.domain.tendril.TendrilUser;
+import org.joda.time.DateTime;
+import org.joda.time.format.ISODateTimeFormat;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
+import javax.ws.rs.core.MediaType;
 
 /**
  */
@@ -47,9 +46,9 @@ public class TendrilClient {
 	public CostAndConsumption getConsumption(String username, String password) {
 		Client c = clientProvider.get();
 		c.addFilter(new HTTPBasicAuthFilter(username, password));
-		DateTime from = DateTime.now();
-		DateTime to = from.minusDays(30);
-		WebResource webResource = c
+		DateTime to = DateTime.now();
+        DateTime from = to.minusDays(30);
+        WebResource webResource = c
 				.resource("https://dev-program.tendrildemo.com/api/rest/user/current-user/account/default-account/consumption/HOURLY;from="
 						+ ISODateTimeFormat.dateTimeNoMillis().print(from)
 						+ ";to="
