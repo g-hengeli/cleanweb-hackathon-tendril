@@ -1,7 +1,7 @@
 package com.tendril.cleanweb.server.resource;
 
+import com.tendril.cleanweb.client.GenabilityClient;
 import com.tendril.cleanweb.domain.genability.Tariff;
-import com.tendril.cleanweb.server.GenabilityClient;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -15,7 +15,7 @@ import java.util.List;
 public class TariffResource {
 
 	@Inject
-	GenabilityClient genabilityClient;
+    GenabilityClient genabilityClient;
 
 	@GET
 	public List<Tariff> getTariffs(@QueryParam("zipcode") String zipCode) {
