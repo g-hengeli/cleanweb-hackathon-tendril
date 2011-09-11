@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>service</name>
     <url>http://maven.apache.org</url>

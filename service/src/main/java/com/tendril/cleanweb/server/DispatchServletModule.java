@@ -5,6 +5,7 @@ import com.sun.jersey.api.container.filter.LoggingFilter;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
+import com.tendril.cleanweb.server.resource.SecurityFilter;
 import com.tendril.cleanweb.server.resource.TariffResource;
 import com.tendril.cleanweb.server.resource.UserResource;
 
@@ -22,9 +23,7 @@ public class DispatchServletModule extends ServletModule {
 
         Map<String, String> params = new HashMap<String, String>();
         params.put(JSONConfiguration.FEATURE_POJO_MAPPING, "true");
-//        params.put(ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, HTTPBasicAuthFilter.class.getName());
-//        params.put(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, HTTPBasicAuthFilter.class.getName());
-        params.put(ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, LoggingFilter.class.getName());
+        params.put(ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, LoggingFilter.class.getName() + "," + SecurityFilter.class.getName());
         params.put(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, LoggingFilter.class.getName());
 
         serve("/*").with(GuiceContainer.class, params);
