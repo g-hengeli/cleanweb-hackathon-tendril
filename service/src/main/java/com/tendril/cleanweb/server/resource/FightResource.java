@@ -1,16 +1,16 @@
 package com.tendril.cleanweb.server.resource;
 
+import com.tendril.cleanweb.client.TendrilClient;
+import com.tendril.cleanweb.domain.Fight;
+import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
+import com.tendril.cleanweb.domain.tendril.TendrilLocation;
+import com.tendril.cleanweb.server.GenabilityClient;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
-
-import com.tendril.cleanweb.domain.Fight;
-import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
-import com.tendril.cleanweb.domain.tendril.TendrilLocation;
-import com.tendril.cleanweb.server.GenabilityClient;
-import com.tendril.cleanweb.server.TendrilClient;
 
 @Path("/fight")
 public class FightResource {
@@ -19,7 +19,7 @@ public class FightResource {
 	GenabilityClient genabilityClient;
 
 	@Inject
-	TendrilClient tendrilClient;
+    TendrilClient tendrilClient;
 
 	@GET
 	public Fight fight(@HeaderParam("custom-auth") String auth,
