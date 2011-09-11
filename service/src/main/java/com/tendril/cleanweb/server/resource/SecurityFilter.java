@@ -1,5 +1,6 @@
 package com.tendril.cleanweb.server.resource;
 
+import com.sun.jersey.core.header.InBoundHeaders;
 import com.sun.jersey.core.util.Base64;
 import com.sun.jersey.spi.container.ContainerRequest;
 import com.sun.jersey.spi.container.ContainerRequestFilter;
@@ -15,6 +16,10 @@ public class SecurityFilter implements ContainerRequestFilter {
         SecurityContext securityContext = extractCreds(request);
         request.setSecurityContext(securityContext);
 
+        InBoundHeaders headers = new InBoundHeaders();
+        headers.add("custom-auth", securityContext.getUserPrincipal().getName() + ":" + securityContext.getPassword());
+        request.setHeaders(headers);
+        
         return request;
     }
 

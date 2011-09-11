@@ -5,10 +5,28 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.042860 seconds on emulator to get ready
+[DEBUG] waited 0.014653 seconds on emulator to get ready
 [DEBUG] com.tendril.EnergyBattle installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createBattleWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createBattleWindow.js
+[INFO] Detected tiapp.xml change, forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/android/appicon.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/android/default.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/default.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/app.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createBattleWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createBattleWindow.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createLeaderBoardWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createLeaderBoardWindow.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createLoginWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createLoginWindow.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createNearbyWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createNearbyWindow.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createPricingPlanWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createPricingPlanWindow.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createResultsWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createResultsWindow.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/functions.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/functions.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_grn_off.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_grn_off.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_grn_on.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_grn_on.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_gry_off.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_gry_off.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_gry_on.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_gry_on.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/KS_nav_ui.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/KS_nav_ui.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/KS_nav_views.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/KS_nav_views.png
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/network.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/network.js
+[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/ui.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/ui.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/appicon.png
@@ -35,6 +53,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/createLeaderBoardWindow.js
 [DEBUG] from resource zip => assets/Resources/createLoginWindow.js
 [DEBUG] from resource zip => assets/Resources/createNearbyWindow.js
+[DEBUG] from resource zip => assets/Resources/createPricingPlanWindow.js
 [DEBUG] from resource zip => assets/Resources/createResultsWindow.js
 [DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/functions.js
@@ -70,6 +89,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.015303 seconds on emulator to get ready
+[DEBUG] waited 0.014946 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

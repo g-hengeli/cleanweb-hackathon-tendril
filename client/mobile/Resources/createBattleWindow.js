@@ -1,4 +1,5 @@
 Ti.include('createResultsWindow.js');
+Ti.include('createPricingPlanWindow.js');
 
 // CONSTRUCTOR FOR THE Battle WINDOW
 
@@ -38,7 +39,7 @@ battle.ui.createBattleWindow = function(){
 	win.add(yourAreaLabel);
 	
 	
-	Ti.App.Properties.setInt('user_zip', 80305);
+	Ti.App.Properties.setInt('user_zip', 55555);
 	var areaCode = Ti.App.Properties.getInt('user_zip');
 	var myArea = Titanium.UI.createTextField({
 		value:areaCode,
@@ -84,7 +85,7 @@ battle.ui.createBattleWindow = function(){
 		width:'90%',
 		backgroundImage:'images/BUTT_gry_off.png',
 		backgroundSelectedImage:'images/BUTT_gry_on.png',
-		top:190
+		top:240
 	})
 	//win.add(battleBtn);
 	battleBtn.hide();
@@ -137,56 +138,24 @@ battle.ui.createBattleWindow = function(){
 		
 	});
 	
-	var clearPicker = Ti.UI.createButton({
-		title:'Done'
-	});
-	
-	clearPicker.addEventListener('click', function(){
-		picker.bottom = -1000;
-		win.setRightNavButton();
-	});
+
 	pricingBtn.addEventListener('click', function(){
 		if(!myArea.value || !yourArea.value){
 			alert('Please enter the area code you would like to battle');
 		} else {
 			
-			pricingBtn.hide();
-			picker.bottom = 0;
-			if(Ti.App.Properties.getString('platform') == 'android'){
-				picker.bottom = 100;
-			} else {
-				win.setRightNavButton(clearPicker);
-			}
 			win.add(battleBtn);
 			battleBtn.show();
+			
+			pricingBtn.title = 'Change Pricing Plan'
+			
+			var pickerWin = battle.ui.createPricingPlanWindow(myArea.value, yourArea.value);
+			pickerWin.open();
 		}
 	});
 	
 	
-	var names = ['Joanie', 'Mickey', 'Jean-Pierre', 'Gustav', 'Raul', 'Mimi', 'Emily', 'Sandra', 'Carrie', 'Chachi'];
 	
-	var rows1 = [];
-	
-	for (var i = 0; i < names.length; i++) {
-		rows1.push(Ti.UI.createPickerRow({title: names[i]}));
-	}
-	
-	var column1 = Ti.UI.createPickerColumn( {
-		rows: rows1, font: {fontSize: "12"}
-	});
-	
-	var picker = Ti.UI.createPicker({
-		bottom:-1000,
-		selectionIndicator:true,
-		type : Ti.UI.PICKER_TYPE_PLAIN,
-		columns: [column1],
-		zIndex:5
-	});
-	
-	picker.addEventListener('change', function(e) {
-		//alert(e.row.title);
-	});
-	win.add(picker);
 
 
 	
