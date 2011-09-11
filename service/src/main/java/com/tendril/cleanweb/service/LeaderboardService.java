@@ -206,8 +206,8 @@ public class LeaderboardService {
 
 			preparedStatement = connection
 					.prepareStatement("SELECT * FROM leaderboard "
-							+ "WHERE userId != ? AND tariffName != ? "
-							+ "ORDER BY ABS(INTEGER(?) - INTEGER(zipCode)), score");
+                            + "WHERE userId != ? AND tariffName != ? "
+                            + "ORDER BY ABS(INTEGER(?) - INTEGER(zipCode)), score");
 
 			preparedStatement.setString(1, leaderboardEntry.getUserId());
 			preparedStatement.setString(2, leaderboardEntry.getTariffName());
@@ -268,4 +268,42 @@ public class LeaderboardService {
 		}
 	}
 
+	public void reset() {
+		Connection connection = null;
+		ArrayList<Statement> statements = new ArrayList<Statement>();
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DriverManager
+					.getConnection("jdbc:derby:energyFightDB;create=true");
+
+			preparedStatement = connection
+					.prepareStatement("DELETE FROM leaderboard");
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException sqle) {
+			printSQLException(sqle);
+		} finally {
+			while (preparedStatement != null) {
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+						preparedStatement = null;
+					}
+				} catch (SQLException sqle) {
+					printSQLException(sqle);
+				}
+			}
+
+			try {
+				if (connection != null) {
+					connection.close();
+					connection = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
+			}
+		}
+	}
 }

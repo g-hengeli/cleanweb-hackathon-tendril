@@ -1,17 +1,17 @@
 package com.tendril.cleanweb.server.resource;
 
-import java.util.List;
+import com.tendril.cleanweb.domain.LeaderboardEntry;
+import com.tendril.cleanweb.service.LeaderboardService;
 
 import javax.inject.Inject;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import com.tendril.cleanweb.domain.LeaderboardEntry;
-import com.tendril.cleanweb.service.LeaderboardService;
+import java.util.List;
 
 @Path("/leaderboard")
 @Produces(MediaType.APPLICATION_JSON)
@@ -50,5 +50,11 @@ public class LeaderboardResource {
 
 		return leaderboardService.getNeighbors(entry);
 	}
+
+    @DELETE
+    @Path("/reset")
+    public void reset() {
+        leaderboardService.reset();
+    }
 
 }
