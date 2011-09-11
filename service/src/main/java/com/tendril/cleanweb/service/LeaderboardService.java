@@ -191,7 +191,67 @@ public class LeaderboardService {
 			}
 		}
 
-        return leaderboardEntries;
+		return leaderboardEntries;
+	}
+
+	public List<LeaderboardEntry> getNeighbors(LeaderboardEntry leaderboardEntry) {
+		List<LeaderboardEntry> leaderboardEntries = new ArrayList<LeaderboardEntry>();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DriverManager
+					.getConnection("jdbc:derby:energyFightDB;create=true");
+
+			preparedStatement = connection
+					.prepareStatement("SELECT * FROM leaderboard "
+							+ "WHERE userId != ? AND tariffName != ? "
+							+ "ORDER BY ABS(INTEGER(?) - INTEGER(zipCode)), score");
+
+			preparedStatement.setString(1, leaderboardEntry.getUserId());
+			preparedStatement.setString(2, leaderboardEntry.getTariffName());
+			preparedStatement.setString(3, leaderboardEntry.getZipcode());
+
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				LeaderboardEntry leaderboardEntry2 = new LeaderboardEntry(
+						resultSet.getString(1), resultSet.getString(2),
+						resultSet.getInt(3), resultSet.getString(4));
+				leaderboardEntries.add(leaderboardEntry2);
+			}
+		} catch (SQLException sqle) {
+			printSQLException(sqle);
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+					resultSet = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
+			}
+
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+					preparedStatement = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
+			}
+
+			try {
+				if (connection != null) {
+					connection.close();
+					connection = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
+			}
+		}
+
+		return leaderboardEntries;
 	}
 
 	public static void printSQLException(SQLException e) {
