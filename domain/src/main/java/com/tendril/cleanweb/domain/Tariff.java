@@ -12,6 +12,7 @@ public class Tariff {
 	private String lseName;
 	private String tariffName;
 	private Boolean isActive;
+	private String territoryId;
 
 	@Override
 	public String toString() {
@@ -49,6 +50,14 @@ public class Tariff {
 
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public String getTerritoryId() {
+		return territoryId;
+	}
+
+	public void setTerritoryId(String territoryId) {
+		this.territoryId = territoryId;
 	}
 
 }
