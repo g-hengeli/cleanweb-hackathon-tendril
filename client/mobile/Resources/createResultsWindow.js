@@ -11,7 +11,11 @@ battle.ui.createResultsWindow = function(){
 		title:"Close"
 	});
 	
-	win.setRightNavButton(close);
+	
+	if(Ti.App.Properties.getString('platform') != 'android'){
+		win.setRightNavButton(close);
+	}
+	
 	
 	close.addEventListener('click', function(){
 		win.close();
