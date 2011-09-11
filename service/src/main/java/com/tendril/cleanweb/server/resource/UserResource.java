@@ -1,9 +1,9 @@
 package com.tendril.cleanweb.server.resource;
 
+import com.tendril.cleanweb.client.TendrilClient;
 import com.tendril.cleanweb.domain.User;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.domain.tendril.TendrilUser;
-import com.tendril.cleanweb.server.TendrilClient;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

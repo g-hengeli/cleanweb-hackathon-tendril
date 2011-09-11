@@ -1,32 +1,34 @@
 Logfile initialized
 [INFO] logfile = /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build.log
-[DEBUG] /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/builder.py install Energy-Battle /opt/android-sdk /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile com.tendril.EnergyBattle 5
+[DEBUG] /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/builder.py simulator Energy-Battle /opt/android-sdk /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile com.tendril.EnergyBattle 5 WVGA854 
+[INFO] Building Energy-Battle for Android ... one moment
 [INFO] Titanium SDK version: 1.7.2 (07/21/11 09:36 97c3689)
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.014653 seconds on emulator to get ready
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
+[DEBUG] Device connected... (waited 40 seconds)
+[DEBUG] waited 40.527764 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
+[INFO] Installing application on device
+[TRACE] adb devices returned 2 devices/emulators
+[DEBUG] Device connected... (waited 35 seconds)
+[DEBUG] waited 35.126020 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.tendril.EnergyBattle installed? False
+[INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying project resources..
-[INFO] Detected tiapp.xml change, forcing full re-build...
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/android/appicon.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/appicon.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/android/default.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/default.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/app.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/app.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createBattleWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createBattleWindow.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createLeaderBoardWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createLeaderBoardWindow.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createLoginWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createLoginWindow.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createNearbyWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createNearbyWindow.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createPricingPlanWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createPricingPlanWindow.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/createResultsWindow.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/createResultsWindow.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/functions.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/functions.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_grn_off.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_grn_off.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_grn_on.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_grn_on.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_gry_off.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_gry_off.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/images/BUTT_gry_on.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/images/BUTT_gry_on.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/KS_nav_ui.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/KS_nav_ui.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/KS_nav_views.png => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/KS_nav_views.png
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/network.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/network.js
-[TRACE] COPYING CREATED FILE: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/Resources/ui.js => /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/ui.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/assets/Resources/appicon.png
@@ -38,7 +40,12 @@ Logfile initialized
 [DEBUG] adding /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/gen/com/tendril/EnergyBattle/EnergyBattleApplication.java to javac build list
 [DEBUG] adding /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/gen/com/tendril/EnergyBattle/R.java to javac build list
 [DEBUG] Building Java Sources: "/Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/gen/com/tendril/EnergyBattle/EnergyBattleActivity.java" "/Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/gen/com/tendril/EnergyBattle/EnergyBattleAppInfo.java" "/Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/gen/com/tendril/EnergyBattle/EnergyBattleApplication.java" "/Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/gen/com/tendril/EnergyBattle/R.java"
+[INFO] Waiting for SDCard to become available..
 [INFO] Compiling Android Resources... This could take some time
+[INFO] Launching application ... Energy-Battle
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.tendril.EnergyBattle/.EnergyBattleActivity }
+
+[INFO] Deployed Energy-Battle ... Application should be running.
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: /Users/gregshoops/Documents/Titanium Studio Workspace/cleanweb-hackathon-tendril/client/mobile/build/android/bin/app-unsigned.apk
 [DEBUG] from resource zip => assets/Resources/images/BUTT_grn_off.png
@@ -62,14 +69,22 @@ Logfile initialized
 [DEBUG] from resource zip => assets/tiapp.xml
 [DEBUG] from resource zip => res/drawable/appicon.png
 [DEBUG] from resource zip => res/drawable/background.png
+[DEBUG] from resource zip => res/drawable/facebook_icon.png
+[DEBUG] from resource zip => res/drawable/facebook_login.png
+[DEBUG] from resource zip => res/drawable/facebook_login_down.png
+[DEBUG] from resource zip => res/drawable/facebook_login_wide.png
+[DEBUG] from resource zip => res/drawable/facebook_login_wide_down.png
+[DEBUG] from resource zip => res/drawable/facebook_logout.png
+[DEBUG] from resource zip => res/drawable/facebook_logout_down.png
 [DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
 [DEBUG] from resource zip => AndroidManifest.xml
 [DEBUG] from resource zip => resources.arsc
+[DEBUG] from resource zip => res/drawable-hdpi/facebook_icon.png
+[DEBUG] from resource zip => res/drawable-ldpi/facebook_icon.png
+[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-yahoo.jar => ti/modules/titanium/yahoo/yahoo.js
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/smalljs.jar => org/mozilla/javascript/resources/Messages.properties
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/smalljs.jar => org/mozilla/javascript/resources/Messages_fr.properties
-[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
-[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
-[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar => org/apache/Commons-NOTICE.txt
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar => org/apache/HttpComponents-NOTICE.txt
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar => org/apache/mime4j-NOTICE.txt
@@ -86,9 +101,16 @@ Logfile initialized
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
 [DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR /Library/Application Support/Titanium/mobilesdk/osx/1.7.2/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.014946 seconds on emulator to get ready
-[INFO] Installing application on emulator
-[INFO] Application installed. Launch from drawer on Home Screen
+[DEBUG] waited 0.015365 seconds on emulator to get ready
+[INFO] Installing application on device
+[INFO] Launching application ... Energy-Battle
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.tendril.EnergyBattle/.EnergyBattleActivity }
+
+[INFO] Deployed Energy-Battle ... Application should be running.
+[INFO] Android Emulator has exited
