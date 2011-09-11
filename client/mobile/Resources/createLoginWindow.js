@@ -11,7 +11,8 @@ battle.ui.createLoginWindow = function(){
 		top:45,
 		hintText:'E-Mail',
 		width:250,
-		height:30,
+		height:50,
+		autocapitalization:Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
 		borderRadius:'4',
 		borderColor:'black',
 		paddingLeft:5,
@@ -21,10 +22,10 @@ battle.ui.createLoginWindow = function(){
 	win.add(email);
 	
 	var password = Titanium.UI.createTextField({
-		top:85,
+		top:125,
 		hintText:'Password',
 		width:250,
-		height:30,
+		height:50,
 		paddingLeft:5,
 		borderRadius:'4',
 		backgroundColor:'white',

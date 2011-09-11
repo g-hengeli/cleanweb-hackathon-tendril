@@ -7,7 +7,7 @@
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <id>com.tendril.EnergyBattle</id>
+    <id>com.tendril.EnergyFight</id>
     <name>Energy-Battle</name>
     <version>1.0</version>
     <publisher>gregshoops</publisher>
@@ -23,7 +23,6 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <guid>9cdd5461-e9ed-4c0a-a63a-94c9f1d47cad</guid>
-    
     <property name="ti.android.debug" type="bool">true</property>
     <!-- this will only work with our dev keystore and not on a production device! -->
     <property name="ti.android.google.map.api.key.development">0ZnKXkWA2dIAu2EM-OV4ZD2lJY3sEWE5TSgjJNg</property>
@@ -41,7 +40,7 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-    	<supports-screens android:anyDensity="false"/>
+        <supports-screens android:anyDensity="false"/>
     </android>
     <modules/>
 </ti:app>

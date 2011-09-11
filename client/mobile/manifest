@@ -1,8 +1,8 @@
-#appname: Energy-Battle
-#publisher: gregshoops
-#url: http://
-#image: appicon.png
-#appid: com.tendril.EnergyBattle
-#desc: undefined
-#type: ipad
-#guid: 9cdd5461-e9ed-4c0a-a63a-94c9f1d47cad
+#appname:Energy-Battle
+#publisher:gregshoops
+#url:http://
+#image:appicon.png
+#appid:com.tendril.EnergyFight
+#desc:not specified
+#type:ipad
+#guid:9cdd5461-e9ed-4c0a-a63a-94c9f1d47cad

@@ -40,6 +40,10 @@
 		xhr.setRequestHeader('Authorization', 'Basic '+ Ti.Utils.base64encode(username+':'+password));
 		
 		Ti.API.info('username: '+ username + ' password:'+password);
+		
+		Ti.App.Properties.setString('username', username);
+		Ti.App.Properties.setString('password', password);
+		
 		xhr.send();
 	};
 	
@@ -47,11 +51,44 @@
 	battle.network.getLeaderBoard = function(_cb) {
 		var xhr = Titanium.Network.createHTTPClient();
 		xhr.onload = function() {
-			_cb(JSON.parse(this.responseText));
+			_cb(eval('('+this.responseText+')'));
 		};
-		var url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=cleanwebhack';//Ti.App.Properties.getString('base_url');
+		var url = Ti.App.Properties.getString('base_url')+'leaderboard';//Ti.App.Properties.getString('base_url');
 		Ti.API.info(url);
 		xhr.open("GET",url);
+		
+		xhr.setRequestHeader('Authorization', 'Basic '+ Ti.Utils.base64encode(Ti.App.Properties.getString('username')+':'+Ti.App.Properties.getString('password')));
+		
+		xhr.send();
+	};
+	
+	//Get The leader board
+	battle.network.fight = function(_cb) {
+		var xhr = Titanium.Network.createHTTPClient();
+		xhr.onload = function() {
+			_cb(this.responseXML.documentElement);
+		};
+		var url = Ti.App.Properties.getString('base_url')+'fight;myTariffId='+Ti.App.Properties.getInt('myTariffId')+';comparisonTariffId='+Ti.App.Properties.getInt('yourTariffId');//Ti.App.Properties.getString('base_url');
+		Ti.API.info(url);
+		xhr.open("GET",url);
+		
+		xhr.setRequestHeader('Authorization', 'Basic '+ Ti.Utils.base64encode(Ti.App.Properties.getString('username')+':'+Ti.App.Properties.getString('password')));
+		
+		xhr.send();
+	};
+	
+	//Get The leader board
+	battle.network.postfight = function(_cb) {
+		var xhr = Titanium.Network.createHTTPClient();
+		xhr.onload = function() {
+			_cb(this.responseXML.documentElement);
+		};
+		var url = Ti.App.Properties.getString('base_url')+'leaderBoard?zipcode='+Ti.App.Properties.getInt('myZip')+'&tariffName='+Ti.App.Properties.getInt('myTariffName')+'&score='+myscore+'&userId='+Ti.App.Properties.getString('username');//Ti.App.Properties.getString('base_url');
+		Ti.API.info(url);
+		xhr.open("GET",url);
+		
+		xhr.setRequestHeader('Authorization', 'Basic '+ Ti.Utils.base64encode(Ti.App.Properties.getString('username')+':'+Ti.App.Properties.getString('password')));
+		
 		xhr.send();
 	};
 

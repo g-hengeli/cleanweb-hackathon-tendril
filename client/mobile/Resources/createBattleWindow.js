@@ -8,10 +8,15 @@ battle.ui.createBattleWindow = function(){
 	var win = Ti.UI.createWindow({
 		title:'Battle',
 		barColor:Ti.App.Properties.getString('barColor'),
-		
+		backgroundImage:'images/wood-bg.png'
 	});
 	
-	var doneBtn = Ti.UI.createButton({
+	var myDoneBtn = Ti.UI.createButton({
+		title:'Done',
+		style:Titanium.UI.iPhone.SystemButtonStyle.DONE
+	});
+	
+	var yourDoneBtn = Ti.UI.createButton({
 		title:'Done',
 		style:Titanium.UI.iPhone.SystemButtonStyle.DONE
 	});
@@ -21,38 +26,43 @@ battle.ui.createBattleWindow = function(){
 	});
 	
 	var myAreaLabel = Ti.UI.createLabel({
-		text:'My Area Code:',
+		text:'My Zip Code:',
 		left:'auto',
 		right:'auto',
 		top:15,
 		height:20,
-		width:"40%"
+		color:"#CCCCCC",
+		width:"auto"
 	});
 	win.add(myAreaLabel);
 	var yourAreaLabel = Ti.UI.createLabel({
-		text:'Opponent Area Code:',
+		text:'Opponent Zip Code:',
 		left:'auto',
 		right:'auto',
+		color:"#CCCCCC",
 		top:90,
 		height:40,
-		width:200
+		width:"auto"
 	});
 	win.add(yourAreaLabel);
 	
 	
-	//Ti.App.Properties.setInt('user_zip', 55555);
+	Ti.App.Properties.setInt('user_zip', 80026);
 	var zipCode = Ti.App.Properties.getInt('user_zip');
 	var myArea = Titanium.UI.createTextField({
 		value:zipCode,
+		//value:80304,
 		top:45,
-		hintText:'Ex: 80303',
+		editable:false,
 		left:'auto',
 		right:'auto',
-		width:'75%',
+		width:'40%',
 		height:40,
-		paddingLeft:5,
+		paddingLeft:'40',
+		paddingRight:'40',
 		borderRadius:'4',
-		keyboardToolbar:[flexSpace, doneBtn],
+		keyboardToolbar:[flexSpace, myDoneBtn],
+		keyboardToolbarColor:Ti.App.Properties.getString('barColor'),
 		keyboardType:Titanium.UI.KEYBOARD_NUMBER_PAD,
 		returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
 		backgroundColor:'white',
@@ -65,23 +75,25 @@ battle.ui.createBattleWindow = function(){
 		top:130,
 		left:'auto',
 		right:'auto',
-		hintText:'Ex: 90210',
-		width:'75%',
+		width:'40%',
 		height:40,
-		paddingLeft:5,
+		paddingLeft:'40',
+		paddingRight:'40',
 		borderRadius:'4',
-		keyboardToolbar:[flexSpace, doneBtn],
+		keyboardToolbar:[flexSpace, yourDoneBtn],
 		keyboardToolbarColor:Ti.App.Properties.getString('barColor'),
 		keyboardType:Titanium.UI.KEYBOARD_NUMBER_PAD,
 		returnKeyType:Titanium.UI.RETURNKEY_DONE,
 		backgroundColor:'white',
 		borderColor:'black'
 	});
+	
+
 	win.add(yourArea);
 	
 
 	var battleBtn = Ti.UI.createButton({
-		title:'BATTLE!',
+		title:'FIGHT!',
 		height:50,
 		color:'#fff',
 		font: { fontWeight: 'bold', fontSize:'16'},
@@ -90,12 +102,12 @@ battle.ui.createBattleWindow = function(){
 		backgroundImage:'images/greenBtnOFF.png',
 		backgroundSelectedImage:'images/greenBtnON.png',
 		top:240
-	})
+	});
 	//win.add(battleBtn);
 	battleBtn.hide();
 	
 	var pricingBtn = Ti.UI.createButton({
-		title:'Choose Pricing Plan',
+		title:'CHOOSE PRICING PLAN',
 		height:50,
 		color:'#fff',
 		width:'90%',
@@ -103,9 +115,11 @@ battle.ui.createBattleWindow = function(){
 		backgroundImage:'images/greenBtnOFF.png',
 		backgroundSelectedImage:'images/greenBtnON.png',
 		top:190
-	})
+	});
 	
 	pricingBtn.hide();
+	
+	
 	
 	var enterValueLabel = Ti.UI.createLabel({
 		text:'Enter a Valid Zip Code',
@@ -116,9 +130,28 @@ battle.ui.createBattleWindow = function(){
 		width:190,
 		top:190
 	})
+	
 	win.add(enterValueLabel);
 	
+	
+	
+	myArea.addEventListener('change', function(){
+		//alert('change');
+		battleBtn.hide();
+		Ti.App.Properties.setString('myZip', null);
+		if(myArea.value.length == 5){
+			enterValueLabel.hide();
+			win.add(pricingBtn);
+			pricingBtn.show();
+			myArea.blur();
+		}
+	});
+	
+
+	
 	yourArea.addEventListener('change', function(){
+		//alert('change');
+		battleBtn.hide();
 		Ti.App.Properties.setString('yourZip', null);
 		if(yourArea.value.length == 5){
 			enterValueLabel.hide();
@@ -129,12 +162,15 @@ battle.ui.createBattleWindow = function(){
 	});
 	
 	
-	doneBtn.addEventListener('click', function(){
+	myDoneBtn.addEventListener('click', function(){
 		myArea.blur();
+	});
+	yourDoneBtn.addEventListener('click', function(){
 		yourArea.blur();
 	});
 	
 	battleBtn.addEventListener('click', function(){
+		
 		if(myArea.value.length == 5 || yourArea.value.length == 5){
 			var resultWin = battle.ui.createResultsWindow();
 			resultWin.open();
@@ -144,19 +180,22 @@ battle.ui.createBattleWindow = function(){
 		
 	});
 	
-
+	
 	pricingBtn.addEventListener('click', function(){
-		if(!myArea.value || !yourArea.value){
-			alert('Please enter the area code you would like to battle');
+		Ti.API.info('myziplength: '+ myArea.value.length);
+		Ti.API.info('yourziplength: '+ yourArea.value.length);
+		if(yourArea.value.length != 5){
+			alert('Please enter valid area codes to battle');
 		} else {
-			
+			var pickerWin = battle.ui.createPricingPlanWindow(myArea.value, yourArea.value);
+			pickerWin.open();
 			win.add(battleBtn);
 			battleBtn.show();
 			
-			pricingBtn.title = 'Change Pricing Plan'
+			pricingBtn.title = 'CHANGE PRICING PLAN'
 			
-			var pickerWin = battle.ui.createPricingPlanWindow(myArea.value, yourArea.value);
-			pickerWin.open();
+			
+			
 		}
 	});
 	

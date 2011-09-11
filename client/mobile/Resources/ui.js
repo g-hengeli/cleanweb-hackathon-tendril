@@ -3,7 +3,7 @@
 	//Create sub-namespace
 	battle.ui = {};
 	
-	Ti.include('functions.js');
+	//Ti.include('functions.js');
 	Ti.include('createLoginWindow.js');
 	Ti.include('createBattleWindow.js');
 	Ti.include('createNearbyWindow.js');
@@ -47,7 +47,7 @@
 		//create the battle tab
 		battle.battleTab = Ti.UI.createTab({
 			title:'Battle',
-			icon:'images/fist.png',
+			icon:'images/play.png',
 			window:battleWin
 		});
 		

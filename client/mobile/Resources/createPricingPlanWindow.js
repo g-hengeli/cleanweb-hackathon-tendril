@@ -3,11 +3,11 @@
 battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	var win = Ti.UI.createWindow({
 		title:'Pricing Plans',
-		backgroundColor:'#999999',
+		backgroundImage:'images/wood-bg.png',
 		barColor:Ti.App.Properties.getString('barColor'),
 		modal:true
 	});
-	
+	Ti.API.info(' myZip ' + myZip + ' yourZip ' + yourZip);
 	var scrollView = Titanium.UI.createScrollView({
 		contentWidth:'auto',
 		contentHeight:'auto',
@@ -18,14 +18,17 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	
 	
 	var view = Ti.UI.createView({
-		width:320,
+		width:"320",
 		height:600,
+		left:'auto',
+		right:'auto',
 		top:0
 	});
 	
 	scrollView.add(view);
 	
 	var url = Ti.App.Properties.getString('base_url')+'tariff?zipcode='+myZip;
+	Ti.API.info('xhr url ' + url);
 	var xhr = Titanium.Network.createHTTPClient();
 
 
@@ -35,6 +38,7 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	xhr.onload = function()
 	{
 		
+		Ti.API.info(' XHR  LOADED ' );
 		Ti.API.info(' xml ' + this.responseXML + ' text ' + this.responseText);
 		var doc = this.responseXML.documentElement;
 		var tariffs = doc.getElementsByTagName("tariffName");
@@ -46,8 +50,13 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 		} else {
 			var ids = [];
 			for(var i = 0; i < tarriffId.length; i++){
-				ids[i] = tarriffId.item(i).text;
-				Ti.API.info("tariffId = " + ids[i]);
+				if(tarriffId.item(i).text != undefined){
+					ids[i] = tarriffId.item(i).text;
+					Ti.API.info("tariffId = " + ids[i]);
+				} else {
+					break;
+				}
+				
 			}
 			for(var i = 0; i < tariffs.length; i++){
 				names[i] = tariffs.item(i);
@@ -62,18 +71,23 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 				left:20,
 				right:20,
 				wordWrap:true,
+				font:{fontWeight:'bold', fontSize:'16'},
+				color:'#CCCCCC',
 				height:60,
 				top:0
 			});
 			view.add(myPricingPlanLabel);
 			Ti.App.Properties.setInt('myTariffId', ids[0]);
+			Ti.App.Properties.setString('myTariffName', names[0].text);
 			//Ti.API.info("My Tariff Name = " + tariffName.text);
 			//var names = ['Joanie', 'Mickey longer word', 'Jean-Pierre', 'Gustav', 'Raul', 'Mimi', 'Emily', 'Sandra', 'Carrie', 'Chachi'];
 			var rows1 = [];
 		
 			for (var i = 0; i < names.length; i++) {
-				rows1.push(Ti.UI.createPickerRow({title: names[i].text, tariffId:ids[i]}));
-				Ti.API.info("My Tariff Name"+i+"= " + names[i].text+" ID"+i+"= " + ids[i]);
+				if(ids[i] != undefined){
+					rows1.push(Ti.UI.createPickerRow({title: names[i].text, tariffId:ids[i]}));
+					Ti.API.info("My Tariff Name"+i+"= " + names[i].text+" ID"+i+"= " + ids[i]);
+				}
 			}
 			
 			var column1 = Ti.UI.createPickerColumn( {
@@ -94,6 +108,7 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 			myPicker.addEventListener('change', function(e) {
 				myPricingPlanLabel.text = 'My Pricing Plan: \n' + e.row.title;
 				Ti.App.Properties.setInt('myTariffId', e.row.tariffId);
+				Ti.App.Properties.setString('myTariffName', e.row.title);
 			});
 			view.add(myPicker);
 			Ti.API.info("Made it to here!!!");
@@ -103,16 +118,31 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	};
 	// open the client
 	xhr.open('GET',url);
-	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode('greg:hackathon'));//Ti.Utils.base64encode(username+':'+password));
+	
+	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode('cleanweb.hackathon@tendrilinc.com:hackathon'));//Ti.Utils.base64encode(username+':'+password));
 	// send the data
 	xhr.send();
 	
 	
+	
+	var yourPicker = Ti.UI.createPicker({
+		bottom:20,
+		height:50,
+		//width:100,
+		left:0,
+		selectionIndicator:true,
+		type : Ti.UI.PICKER_TYPE_PLAIN,
+		
+		zIndex:5
+	});
+	
 	var url1 = Ti.App.Properties.getString('base_url')+'tariff?zipcode='+yourZip;
+	Ti.API.info('xhr1 url ' + url1);
 	var xhr1 = Titanium.Network.createHTTPClient();
 
 	xhr1.onload = function()
 	{
+		Ti.API.info(' XHR 1 LOADED ' );
 		Ti.API.info(' xml ' + this.responseXML + ' text ' + this.responseText);
 		var doc = this.responseXML.documentElement;
 		var tariffs = doc.getElementsByTagName("tariffName");
@@ -124,8 +154,12 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 		} else {
 			var ids = [];
 			for(var i = 0; i < tarriffId.length; i++){
-				ids[i] = tarriffId.item(i).text;
-				Ti.API.info("tariffId = " + ids[i]);
+				if(tarriffId.item(i).text != undefined){
+					ids[i] = tarriffId.item(i).text;
+					Ti.API.info("tariffId = " + ids[i]);
+				} else {
+					break;
+				}
 			}
 			for(var i = 0; i < tariffs.length; i++){
 				names[i] = tariffs.item(i);
@@ -139,6 +173,8 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 				width: 280,
 				left:20,
 				right:20,
+				color:'#CCCCCC',
+				font:{fontWeight:'bold', fontSize:'16'},
 				wordWrap:true,
 				height:60,
 				top:290
@@ -150,25 +186,18 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 			var rows1 = [];
 		
 			for (var i = 0; i < names.length; i++) {
-				rows1.push(Ti.UI.createPickerRow({title: names[i].text, tariffId:ids[i]}));
-				Ti.API.info("Opponent Tariff Name"+i+"= " + names[i].text+" ID"+i+"= " + ids[i]);
+				if(ids[i] != undefined){
+					rows1.push(Ti.UI.createPickerRow({title: names[i].text, tariffId:ids[i]}));
+					Ti.API.info("Opponent Tariff Name"+i+"= " + names[i].text+" ID"+i+"= " + ids[i]);
+				}	
 			}
 			
 			var column1 = Ti.UI.createPickerColumn( {
 				rows: rows1, font: {fontSize: "8"}
 			});
 	
-			var yourPicker = Ti.UI.createPicker({
-				bottom:20,
-				height:50,
-				//width:100,
-				left:0,
-				selectionIndicator:true,
-				type : Ti.UI.PICKER_TYPE_PLAIN,
-				columns: [column1],
-				zIndex:5
-			});
 			
+			yourPicker.columns = [column1];
 			yourPicker.addEventListener('change', function(e) {
 				yourPricingPlanLabel.text = 'Opponent Pricing Plan: \n' + e.row.title;
 				Ti.App.Properties.setInt('yourTariffId', e.row.tariffId);
@@ -178,7 +207,9 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	};
 	// open the client
 	xhr1.open('GET',url1);
-	xhr1.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode('greg:hackathon'));//Ti.Utils.base64encode(username+':'+password));
+	var requestHeader1 = 'Basic ' + Ti.Utils.base64encode(Ti.App.Properties.getString('username')+':'+Ti.App.Properties.getString('password'));
+	Ti.API.info('requestHeader1'+requestHeader1);
+	xhr1.setRequestHeader('Authorization', requestHeader1);//Ti.Utils.base64encode(username+':'+password));
 	// send the data
 	xhr1.send();
 	
@@ -191,6 +222,8 @@ battle.ui.createPricingPlanWindow = function(myZip, yourZip){
 	}
 	
 	done.addEventListener('click', function(){
+		//win.remove(yourPicker);
+		//win.remove(myPicker);
 		win.close();
 	});
 	
