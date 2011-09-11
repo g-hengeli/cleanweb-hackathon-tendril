@@ -1,4 +1,4 @@
-package com.tendril.cleanweb;
+package com.tendril.cleanweb.server;
 
 import java.util.ArrayList;
 import java.util.Arrays;
