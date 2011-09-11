@@ -37,7 +37,8 @@
 		Ti.API.info(url);
 		xhr.open("GET",url);
 		
-		xhr.setRequestHeader('custom-auth', username+':'+password);//+ Ti.Utils.base64encode(username+':'+password));
+		xhr.setRequestHeader('Authorization', 'Basic '+ Ti.Utils.base64encode(username+':'+password));
+		
 		Ti.API.info('username: '+ username + ' password:'+password);
 		xhr.send();
 	};

@@ -1,8 +1,10 @@
 Titanium.UI.setBackgroundColor('#ffffff');
+
 var platform = Titanium.Platform.osname;
 //mainWindow.orientationModes = [Ti.UI.PORTRAIT];
 //Ti.UI.orientation = Ti.UI.PORTRAIT;
 Ti.App.Properties.setString('base_url', 'http://localhost:8080/service/');
+Ti.App.Properties.setString('barColor', '339900');
 
 if(Titanium.Platform.osname == 'android'){
 	Ti.App.Properties.setString('platform', 'android');
@@ -26,10 +28,11 @@ loginTab.open();
 
 //Log our current platform to the console
 Ti.API.info('Welcome to Energy Battle for '+Ti.Platform.osname);
-Ti.App.Properties.setInt('logged_in', 0);
+Ti.App.Properties.setInt('logged_in', 1);
 		
 Ti.App.addEventListener('login', function(){
 	Ti.App.Properties.setInt('logged_in', 1);
+	mainTabs = battle.ui.createMainApplicationTabGroup();
 	loginTab.close();
 	mainTabs.open();
 });

@@ -3,6 +3,7 @@
 battle.ui.createLeaderBoardWindow = function(){
 	var win = Ti.UI.createWindow({
 		title:'Leader Board',
+		barColor:Ti.App.Properties.getString('barColor'),
 	});
 	var tableview = Titanium.UI.createTableView({minRowHeight:58});
 	win.add(tableview);
