@@ -1,5 +1,7 @@
 package com.tendril.cleanweb.service;
 
+import com.tendril.cleanweb.domain.LeaderboardEntry;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,8 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.tendril.cleanweb.domain.LeaderboardEntry;
 
 public class LeaderboardService {
 
@@ -142,7 +142,7 @@ public class LeaderboardService {
 		}
 	}
 
-	public void getLeaderboard() {
+	public List<LeaderboardEntry> getLeaderboard() {
 		List<LeaderboardEntry> leaderboardEntries = new ArrayList<LeaderboardEntry>();
 
 		Connection connection = null;
@@ -190,6 +190,8 @@ public class LeaderboardService {
 				printSQLException(sqle);
 			}
 		}
+
+        return leaderboardEntries;
 	}
 
 	public static void printSQLException(SQLException e) {

@@ -1,8 +1,7 @@
 package com.tendril.cleanweb.server.resource;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.logging.Logger;
+import com.tendril.cleanweb.domain.LeaderboardEntry;
+import com.tendril.cleanweb.service.LeaderboardService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -11,9 +10,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
-import com.tendril.cleanweb.domain.LeaderboardEntry;
-import com.tendril.cleanweb.service.LeaderboardService;
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Logger;
 
 @Path("/leaderboard")
 @Produces(MediaType.APPLICATION_JSON)
@@ -39,14 +38,19 @@ public class LeaderboardResource {
 			@QueryParam("score") int score) {
 		LeaderboardEntry entry = new LeaderboardEntry(userId, zipcode, score,
 				tariffName);
+
+        leaderboardService.persist(entry);
+
 		log.info(entry.toString());
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<LeaderboardEntry> getLeaderboard() {
-		return tempLeaderboard;
-	}
+        return leaderboardService.getLeaderboard();
+
+//		return tempLeaderboard;
+    }
 
 	static List<LeaderboardEntry> tempLeaderboard = Arrays.asList(
 			new LeaderboardEntry("1", "12345", 1, "super awesome"),
