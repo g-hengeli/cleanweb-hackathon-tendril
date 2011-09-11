@@ -7,6 +7,8 @@ import com.tendril.cleanweb.domain.tendril.CostAndConsumption;
 import com.tendril.cleanweb.domain.tendril.TendrilLocation;
 import com.tendril.cleanweb.domain.tendril.TendrilUser;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.ISODateTimeFormat;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -45,20 +47,18 @@ public class TendrilClient {
 	public CostAndConsumption getConsumption(String username, String password) {
 		Client c = clientProvider.get();
 		c.addFilter(new HTTPBasicAuthFilter(username, password));
+		DateTime from = DateTime.now();
+		DateTime to = from.minusDays(30);
 		WebResource webResource = c
-				.resource("https://dev-program.tendrildemo.com/api/rest/user/current-user/account/default-account/consumption/HOURLY;from=;to=");
+				.resource("https://dev-program.tendrildemo.com/api/rest/user/current-user/account/default-account/consumption/HOURLY;from="
+						+ ISODateTimeFormat.dateTimeNoMillis().print(from)
+						+ ";to="
+						+ ISODateTimeFormat.dateTimeNoMillis().print(to));
 
 		CostAndConsumption costAndConsumption = webResource.accept(
 				MediaType.APPLICATION_JSON_TYPE).get(CostAndConsumption.class);
 
 		return costAndConsumption;
 	}
-
-    public CostAndConsumption getCostAndConsumption() {
-        DateTime from = DateTime.now();
-        DateTime to = from.minusDays(30);
-
-        return null;
-    }
 
 }
