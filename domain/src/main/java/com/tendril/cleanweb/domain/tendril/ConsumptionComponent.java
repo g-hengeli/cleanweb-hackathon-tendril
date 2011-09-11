@@ -1,9 +1,10 @@
 package com.tendril.cleanweb.domain.tendril;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class ConsumptionComponent {
@@ -19,6 +20,7 @@ public class ConsumptionComponent {
 				ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
+    @XmlAttribute
 	public String getFromDate() {
 		return fromDate;
 	}
@@ -27,6 +29,7 @@ public class ConsumptionComponent {
 		this.fromDate = fromDate;
 	}
 
+    @XmlAttribute
 	public String getToDate() {
 		return toDate;
 	}
