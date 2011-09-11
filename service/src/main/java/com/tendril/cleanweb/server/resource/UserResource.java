@@ -10,7 +10,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.*;
 
 /**
  */
@@ -27,13 +26,9 @@ public class UserResource {
 
     @GET
     public User getUser(@HeaderParam("custom-auth") String auth) throws Exception {
-//    public User getUser(@Context HttpHeaders headers) {
         String authValues[] = auth.split(":");
         String username = authValues[0];
         String password = authValues[1];
-//        String auth = headers.getRequestHeader("authorization").get(0);
-//        String values[] = new String(Base64.base64Decode(auth)).split(":");
-//        String username = values[0];
 
         TendrilUser tendrilUser = client.getUser(username, password);
         TendrilLocation tendrilLocation = client.getLocation(username, password);
@@ -43,8 +38,8 @@ public class UserResource {
 
     @GET
     @Path("basic")
-    public String foo(@Context javax.ws.rs.core.SecurityContext securityContext) {
-        return securityContext.getUserPrincipal().getName();
+    public String foo(@HeaderParam("custom-auth") String customAuth) {
+        return customAuth;
     }
 
 
