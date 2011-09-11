@@ -23,7 +23,7 @@ public class FightResource {
 
 	@GET
 	public Fight fight(@HeaderParam("custom-auth") String auth,
-			@QueryParam("zipcode") String zipCode) {
+			@QueryParam("tariffId") Long tariffId) {
 		TendrilLocation tendrilLocation = new TendrilLocation();
 		tendrilLocation.setPostalCode("80301");
 		// TendrilLocation tendrilLocation = tendrilClient.getLocation(auth);
