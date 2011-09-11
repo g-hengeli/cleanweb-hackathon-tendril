@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.tendril.cleanweb.domain.LeaderboardEntry;
 
@@ -70,21 +71,19 @@ public class LeaderboardService {
 		Connection connection = null;
 		ArrayList<Statement> statements = new ArrayList<Statement>();
 		PreparedStatement preparedStatement = null;
-		Statement statement = null;
 		ResultSet resultSet = null;
+
 		try {
 			connection = DriverManager
 					.getConnection("jdbc:derby:energyFightDB;create=true");
 
-			statement = connection.createStatement();
-			statements.add(statement);
-
 			preparedStatement = connection
 					.prepareStatement("SELECT * FROM leaderboard WHERE userId = ?");
 			statements.add(preparedStatement);
-			preparedStatement.setString(1, leaderboardEntry.getUserId());
 
+			preparedStatement.setString(1, leaderboardEntry.getUserId());
 			resultSet = preparedStatement.executeQuery();
+
 			if (resultSet.next()) {
 				preparedStatement = connection
 						.prepareStatement("UPDATE leaderboard SET score = ?, tariffName = ? WHERE userId = ?");
@@ -105,7 +104,9 @@ public class LeaderboardService {
 				preparedStatement
 						.setString(4, leaderboardEntry.getTariffName());
 			}
+
 			preparedStatement.executeUpdate();
+
 		} catch (SQLException sqle) {
 			printSQLException(sqle);
 		} finally {
@@ -128,6 +129,56 @@ public class LeaderboardService {
 				} catch (SQLException sqle) {
 					printSQLException(sqle);
 				}
+			}
+
+			try {
+				if (connection != null) {
+					connection.close();
+					connection = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
+			}
+		}
+	}
+
+	public void getLeaderboard() {
+		List<LeaderboardEntry> leaderboardEntries = new ArrayList<LeaderboardEntry>();
+
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DriverManager
+					.getConnection("jdbc:derby:energyFightDB;create=true");
+
+			statement = connection.createStatement();
+			resultSet = statement
+					.executeQuery("SELECT * FROM leaderboard ORDER BY score");
+			while (resultSet.next()) {
+				leaderboardEntries.add(new LeaderboardEntry(resultSet
+						.getString(1), resultSet.getString(2), resultSet
+						.getInt(3), resultSet.getString(4)));
+			}
+		} catch (SQLException sqle) {
+			printSQLException(sqle);
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+					resultSet = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
+			}
+
+			try {
+				if (statement != null) {
+					statement.close();
+					statement = null;
+				}
+			} catch (SQLException sqle) {
+				printSQLException(sqle);
 			}
 
 			try {
