@@ -47,7 +47,7 @@ public class GenabilityClient {
 		return results;
 	}
 
-	public double getCost() {
+	public double getCost(Long tariffId, List<TariffInput> tariffInputs) {
 		double result = 0.0d;
 
 		int masterTariffId = 26531;

@@ -13,7 +13,8 @@ public class ConsumptionConverter {
 		throw new AssertionError("this class cannot be instantiated");
 	}
 
-	public List<TariffInput> convert(CostAndConsumption costAndConsumption) {
+	public static List<TariffInput> convert(
+			CostAndConsumption costAndConsumption) {
 		List<TariffInput> tariffInputs = new ArrayList<TariffInput>();
 
 		for (ConsumptionComponent component : costAndConsumption.getComponent()) {
